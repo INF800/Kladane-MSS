@@ -73,7 +73,7 @@
                 intervals       : intervals,
                 intervals_vals  : intervalVals
             }).then(response => {
-                document.getElementById("processing").value = "SUCCESS!"
+                document.getElementById("processing").value = "SUCCESS! Enter again and click here"
                 console.log(response.data)
                 logger.innerHTML = `Highest productivity was between <b>${response.data["lower interval"]} - ${response.data["upper interval"]}</b> by total <b>${response.data["max value"]}</b> units.`
             });
