@@ -1,5 +1,6 @@
 linux-libc-dev
 libc6-dev
-ibboost-tools-dev
-libboost-thread-dev
-magics++
+libsm6
+libxrender1
+libfontconfig1
+libice6
