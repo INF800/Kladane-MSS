@@ -13,15 +13,16 @@ templates = Jinja2Templates(directory="templates")
 
 
 # ----------------------------------------
-# setup db
+# upload file
 # ----------------------------------------
+from fastapi import FastAPI, File, UploadFile
 
 
 # ----------------------------------------
 # import custom modules
 # ----------------------------------------
 from MSS.kadane_modified import MaxSubArrSum
-
+import pandas as pd
 
 # ----------------------------------------
 # dependency injection
@@ -77,17 +78,8 @@ def process_string_input(user_req: StringRequest) :
 
     intervals_val_list = [float(val) for val in intervals_vals_list]
 
-    print("+"*100)
-    print(intervals_val_list)
-    print(len(intervals_val_list))
-    print("+"*100)
-
     mss = MaxSubArrSum(in_arr=intervals_val_list, size=len(intervals_val_list))
     max_sum, lcur, rcur = mss.max_subarray_sum_with_indices()
-
-    print(max_sum, lcur, rcur)
-    print(intervals_val_list)
-    print(intervals_list)
 
     #(lower, upper) both are inclusive
     return {
@@ -95,6 +87,24 @@ def process_string_input(user_req: StringRequest) :
         "lower interval": intervals_list[lcur],
         "upper interval": intervals_list[rcur-1]}
 
+
+@app.post("/uploadfile/")
+async def create_upload_file(file: UploadFile = File(...)):
+    csv_file    = file.file
+    df          = pd.read_csv(csv_file)
+    #print(df.head())
+    intervals_list      = df["time-interval (in any units)"].tolist()
+    intervals_val_list  = df["loss/profit (in any units)"].tolist()
+
+    #return {"status": file.filename + " uploaded"}
+    mss = MaxSubArrSum(in_arr=intervals_val_list, size=len(intervals_val_list))
+    max_sum, lcur, rcur = mss.max_subarray_sum_with_indices()
+
+    #(lower, upper) both are inclusive
+    return {
+        "max value": max_sum,
+        "lower interval": intervals_list[lcur],
+        "upper interval": intervals_list[rcur-1]}
 # ----------------------------------------
 # end
 # ----------------------------------------

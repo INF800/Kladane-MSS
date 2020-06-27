@@ -5,7 +5,7 @@
 <div class="centered padding-top-five">
     <div class="row">
         <div class="twelve columns">
-            <h2>When Was I Most Productive?</h2>
+            <h2>When Was I Most Productive? </h2>
 
             <br/>
         </div>
@@ -38,12 +38,12 @@
             </div>
             <br/>
             <div>
-                <label for="upload-file">Click to Browse...</label>
+                <label for="upload-file">click here to upload</label>
                 <input type="file" name="photo" id="upload-file" />
             </div>
             <div>
-                <input type="button" class="u-full-width button-primary" value="Sample CSV">
                 <input type="button" class="u-full-width" value="info" onclick="displayInfo()">
+                <input type="button" class="u-full-width button-primary" value="Sample CSV File" onclick="redirectToGist()">
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
         <input id="processing" type="button" class="button-primary u-full-width " value="PROCESS" onclick="processStringData()">
     </div>
     <div id="logger" class="row centered">
-        
+        <!--dynamically log here-->
     </div>
 </div>
 
