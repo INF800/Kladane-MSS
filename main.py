@@ -28,7 +28,9 @@ from fastapi import FastAPI, File, UploadFile
 # from MSS.kadane_modified import MaxSubArrSum
 
 # using `kadaneMSS.so` (CYTHON)
-# no need to pip install cython
+# HAVE to pip install cython and build using `setup.py`
+import os
+os.system("python setup.py build_ext --inplace")
 # we are NOT using MSS.kadane_modified
 import kadaneMSS
 MaxSubArrSum = kadaneMSS.MaxSubArrSum
