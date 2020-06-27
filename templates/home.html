@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="centered padding-top-five">
+    <div class="row">
+        <div class="twelve columns">
+            <h2>Most Productive Time Period</h2>
+            <br/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="nine columns card">
+            <div>
+                <b>ENTER DATA MANUALLY</b>
+            </div>
+            <br/>
+            <div>
+
+                <div class="hint">
+                    <b class>Example: </b>
+                    <span>1-Jan-2020, 5-Jan-2020, 10-Jan-2020, 15-Jan-2020, 20-Jan-2020, 25-Jan-2020, 30-jan-2020, 5-Feb-2020</span>
+                </div>
+                <input id="intervals" type="text" class="u-full-width" placeholder="TIME INTERVALS: week1, week2, week3, week4">
+
+                <div class="hint">
+                    <b class>Example: </b>
+                    <span>+400, +600, -900, +300, -100, +500, +500, -900</span>
+                </div>
+                <input id="intervalValues" type="text" class="u-full-width" placeholder="PROFIT/LOSS: week1-profit-or-loss, week2-profit-or-loss, week3-profit-or-loss, week4-profit-or-loss">
+
+            </div>
+        </div>
+        <div class="three columns card">
+            <div>
+                <b>UPLOAD CSV FILE</b>
+            </div>
+            <br/>
+            <div>
+                <label for="upload-file">Click to Browse...</label>
+                <input type="file" name="photo" id="upload-file" />
+            </div>
+            <div>
+                <input type="button" class="u-full-width button-primary" value="Sample CSV">
+                <input type="button" class="u-full-width" value="info" onclick="displayInfo()">
+            </div>
+        </div>
+    </div>
+    <div class="row centered">
+        <br/>
+        <br/>
+        <input id="processing" type="button" class="button-primary u-full-width " value="PROCESS" onclick="processStringData()">
+    </div>
+    <div id="logger" class="row centered">
+        
+    </div>
+</div>
+
+{% endblock %}
