@@ -25,15 +25,15 @@ from fastapi import FastAPI, File, UploadFile
 # Note: we will be using cython .so istead of .py
 
 # using `.py` module
-# from MSS.kadane_modified import MaxSubArrSum
+from MSS.kadane_modified import MaxSubArrSum
 
 # using `kadaneMSS.so` (CYTHON)
 # HAVE to pip install cython and build using `setup.py`
-import os
-os.system("python setup.py build_ext --inplace")
+#import os
+#os.system("python setup.py build_ext --inplace")
 # we are NOT using MSS.kadane_modified
-import kadaneMSS
-MaxSubArrSum = kadaneMSS.MaxSubArrSum
+#import kadaneMSS
+#MaxSubArrSum = kadaneMSS.MaxSubArrSum
 
 # for csv manipulations
 import pandas as pd

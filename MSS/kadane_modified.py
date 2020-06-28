@@ -13,7 +13,7 @@ class MaxSubArrSum:
                 all_postive = False
                 break
         if all_postive is True:
-            raise("All Inputs are Positive!")
+            print("All Inputs are Positive!")
     
     def max_subarray_sum_with_indices(self):
         """ Kadane's w/ inices
